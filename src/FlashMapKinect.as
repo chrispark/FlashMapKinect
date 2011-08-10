@@ -54,8 +54,6 @@ package
 			
 			_map.setCenter(new PointVO(wgtX, wgtY), MapConfig.DEFAULT_ZOOM_LV, MapConfig.DEFAULT_MAP_TYPE);
 			_map.setAttitude(new AttitudeVO(0, 0, MapConfig.DEFAULT_ROLL_ANGLE));			
-			
-			//initControls();
 		}
 	}
 }
