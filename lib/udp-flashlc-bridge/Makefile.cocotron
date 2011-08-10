@@ -1,0 +1,12 @@
+CC		= /Developer/Cocotron/1.0/Windows/i386/gcc-4.3.1/bin/i386-mingw32msvc-gcc 
+CFLAGS	= -O3 -pedantic -std=c99 -g
+LIBS	= -mconsole -lwsock32 -lws2_32
+MACROS	= -DWINDOWS
+
+all: udp-flashlc-bridge-win
+
+udp-flashlc-bridge-win: src/udp-flashlc-bridge.c src/TFFlashLCSHMEM.c src/UDPListener.c
+	$(CC) $(CFLAGS) $(MACROS) $^ -o $@ $(LIBS)
+
+clean:
+	rm -rf udp-flashlc-bridge-win

@@ -1,0 +1,66 @@
+// flashlog, UCC FT 변유진
+function flashlog(logType, msg) {
+	var outputIsExist = $("#flashlog").length > 0; 
+	if( logType == "clear" ) {
+		if(outputIsExist) $("#flashlog").html("");
+		return;
+	} else {
+		if(!outputIsExist) $("body").append('<ol id="flashlog"></ol>');
+	}
+	
+	var output = $("#flashlog");
+	
+	logType = $.trim(logType).toLowerCase();
+	switch(logType){
+		case "code" :
+			msg = wrapTag("pre", msg);
+			break;
+		case "timer" :
+		case "link" :
+			msg = wrapTag("strong", logType, "prefix") + msg;
+			break;
+	}
+	
+	if($("#flashlog li").length %2 == 1) logType += " alt";
+	$("#flashlog").append( wrapTag("li", msg, logType) );
+}
+
+function wrapTag(tagName, content, className/*string seperated by single space*/) {
+	var tagOpener = "<"+tagName;
+	if(className){
+		className = $.trim(className);
+		if(className.length > 0) tagOpener += " class=\""+ className+"\"";
+	}
+	tagOpener += ">";
+	var tagCloser = "</"+tagName+">";
+	return tagOpener + content + tagCloser;
+}
+
+function appendHTML(html, targetExpr){
+	if(targetExpr.length == 0) targetExpr = "body";
+	$(targetExpr).append(html);
+}
+
+function replaceHTML(html, targetExpr){
+	if(targetExpr.length == 0) targetExpr = "body";
+	$(targetExpr).html(html);
+}
+
+function addStyleClass(id, styleClassName){ $(id).addClass(styleClassName); }
+
+function flashTotalMemory(bytes, msg){
+	var output = $("#flashmemorylog");
+	if(output.length == 0) {
+		var creator = '<dl id="flashmemorylog"></dl>';
+		( $("#flashlog").length == 0 )	? $("body").append(creator)
+										: $("#flashlog").before(creator);
+	}
+	
+	//bytes
+	if( $("#fmAmount").length == 0 ) output.append("<dt>메모리 사용량</dt><dd id=\"fmAmount\">&nbsp;</dd>");
+	$("#fmAmount").html(bytes);
+	
+	//lastupdate
+	if( $("#fmLastUpdate").length == 0) output.append("<dt>최종갱신</dt><dd id=\"fmLastUpdate\">&nbsp;</dd>");
+	$("#fmLastUpdate").html(msg);
+}

@@ -1,0 +1,12 @@
+CC		= gcc
+CFLAGS	= -O3 -pedantic -std=c99
+LIBS	=
+MACROS	=
+
+all: udp-flashlc-bridge
+
+udp-flashlc-bridge: src/udp-flashlc-bridge.c src/TFFlashLCSHMEM.c src/UDPListener.c
+	$(CC) $(CFLAGS) $(MACROS) $^ -o $@ $(LIBS)
+
+clean:
+	rm -rf udp-flashlc-bridge
