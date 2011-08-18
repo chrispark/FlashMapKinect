@@ -1,0 +1,14 @@
+@charset "utf-8";
+body { background-color:#333; }
+#flashlog {
+	background-color:#808285;
+	border-color:#bcbec0;
+}
+#flashlog li {
+	background-color:#d0d2d4;
+	border-left-color:#bcbec0;
+}
+#flashmemorylog dt {
+	color:#fff;
+	background-color:#808285;
+}

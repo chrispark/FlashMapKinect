@@ -1,0 +1,100 @@
+@charset "utf-8";
+/* log output */
+
+#flashlog {
+	padding:0 0 0 50px;
+	font-family:Consolas, "맑은 고딕", Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:1.5em;
+	margin:20px 0;
+	color:#414142;
+	border-width:1px;
+	border-style:solid;
+	clear:both;
+}
+#flashlog li {
+	margin:0;
+	padding:0 5px;
+	border-left-width:1px;
+	border-left-style:solid;
+}
+#flashlog p {
+	margin:0;
+	padding:0 2px;
+}
+#flashlog pre {
+	font-family:Consolas, Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	margin:0;
+	padding:0 5px;
+}
+#flashlog .log strong { color:#0054a6; }
+#flashlog .alt { background-color:#f2f3f6; }
+#flashlog .warn {
+	background-color:#fffcd6;
+	color:#0054a6;
+}
+#flashlog .error {
+	background-color:#fcf4f2;
+	font-weight:bold;
+	color:#c1272d;
+}
+#flashlog .error strong {
+	color:#fcf4f2;
+	background-color:#c1272d;
+}
+#flashlog .code {
+	background-color:#f0f7fe;
+	padding:0;
+}
+#flashlog .bold {
+	font-weight:bold;
+	background-color:#333;
+	color:#fff;
+}
+#flashlog .bold strong { color:#fff200; }
+#flashlog .bold strong.stronger { color:#f7931e; }
+#flashlog .bold a { color:#fffcd6; }
+#flashlog .link a {
+	color:#007070;
+	text-decoration:none;
+}
+#flashlog .link a:hover { text-decoration:underline; }
+#flashlog .timer { color:#0054a6; }
+#flashlog .timer strong { background-color:#0071bc; }
+#flashlog .link strong { background-color:#007070; }
+#flashlog .inspect { color:#808285; }
+#flashlog .inspect strong {
+	color:#2e3192;
+	padding:.1em .5em;
+	margin:0 1px;
+}
+#flashlog .inspect strong.key {
+	color:#231f20;
+	background-color:#fbf9f2;
+	border:1px solid #808285;
+}
+#flashlog strong.prefix {
+	color:#fff;
+	padding:0 3px;
+	margin:0 2px 0 0;
+}
+/* memory usage output */
+
+#flashmemorylog {
+	font-family:Consolas, Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:1em;
+	color:#9d9fa2;
+	background-color:#fff;
+	clear:both;
+}
+#flashmemorylog dt {
+	padding:0 5px;
+	display:inline;
+}
+#flashmemorylog dd {
+	display:inline;
+	margin:0 10px;
+}
+#flashmemorylog dd strong { color:#0054a6; }

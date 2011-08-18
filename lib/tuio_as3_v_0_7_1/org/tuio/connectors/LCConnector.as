@@ -2,8 +2,9 @@ package org.tuio.connectors {
 	
 	import flash.utils.ByteArray;
 	
-	import org.tuio.osc.*;
+	import org.tuio.TuioClient;
 	import org.tuio.connectors.lc.*;
+	import org.tuio.osc.*;
 	
 	public class LCConnector implements IOSCConnector {
 		
@@ -14,6 +15,8 @@ package org.tuio.connectors {
 		private var connectionIn:LCReceiver;
 		
 		private var listeners:Array;
+		
+		private var _client:KinectTUIOClient;
 		
 		public function LCConnector(connectionNameIn:String = "_OscDataStream", connectionNameOut:String = "_OscDataStreamOut") {
 			
@@ -28,8 +31,8 @@ package org.tuio.connectors {
 			this.connectionIn.start();
 		}
 		
-		public function receiveOscData(packet:ByteArray):void {		
-			if (packet != null) {
+		public function receiveOscData(packet:ByteArray):void {			
+			/*if (packet != null) {
 				if (this.listeners.length > 0) {
 					//call receive listeners and push the received messages
 					for each(var l:IOSCConnectorListener in this.listeners) {
@@ -42,7 +45,12 @@ package org.tuio.connectors {
 						}
 					}
 				}
-			}
+			}*/
+			_client.acceptJSONData(packet);
+		}
+		
+		public function addClient(client:KinectTUIOClient):void{
+			_client = client;
 		}
 		
 		public function addListener(listener:IOSCConnectorListener):void {
